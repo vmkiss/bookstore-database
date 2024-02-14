@@ -20,6 +20,34 @@ SET Books.title = :titleInput, Books.authorID = (SELECT authorID FROM Authors WH
     
 DELETE FROM Books WHERE Books.title = :titleInput;
 
+--Authors table CRUD operations
+SELECT Authors.authorID, Authors.authorName, Publishers.publisherName as Publisher
+    FROM Authors
+    INNER JOIN Publishers ON Publishers.publisherID = Authors.publisherID;
+
+INSERT INTO Authors (authorName, publisherID)
+VALUES (:authorInput, (SELECT publisherID FROM Publishers WHERE :publisherInput = Publishers.publisherName));
+
+
+--Publishers table CRUD operations
+SELECT publisherID, publisherName, publisherAddress, publisherCity, publisherState, publisherZip
+FROM Publishers;
+
+INSERT INTO Publishers (publisherName, publisherAddress, publisherCity, publisherState, publisherZip)
+VALUES (:publisherNameInput, :publisherAddressInput, :publisherCityInput, :publisherStateInput, :publisherZipInput);
+
+-- Customers table CRUD operations
+SELECT customerID, customerName, customerPhone, customerEmail, customerAddress, customerCity, customerState, customerZip
+    FROM Customers;
+
+INSERT INTO Customers (customerName, customerPhone, customerEmail, customerAddress, customerCity, customerState, customerZip)
+VALUES (:customerNameInput, :customerPhoneInput, :customerEmailInput, :customerAddressInput, :customerCityInput, :customerStateInput, :customerZipInput);
+
+UPDATE Customers
+SET customerName = :customerNameInput, customerPhone = :customerPhoneInput, customerEmail = :customerEmailInput, customerAddress = :customerAddressInput,
+customerCity = :customerCityInput, customerState = :customerStateInput, customerZip = :customerZipInput;
+
+
 -- Purchases table CRUD operations
 SELECT Purchases.purchaseID, Customers.customerName as Customer, Purchases.datePlaced, Purchases.totalPrice, 
 Purchases.purchaseStatus
