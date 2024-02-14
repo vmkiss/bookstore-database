@@ -152,6 +152,7 @@ VALUES ((SELECT bookID FROM Books WHERE title = 'Monstrous Regiment'), (SELECT p
 '2024-02-06', 1, (SELECT price FROM Books WHERE title = 'Right Ho, Jeeves' AND authorID = (SELECT authorID FROM Authors WHERE authorName = 'P.G. Wodehouse')), (orderQty * unitPrice))
 ;
 
+--Update totalPrice of Purchase by calculating sum of purchases of individual books
 UPDATE Purchases
 SET totalPrice = (SELECT SUM(lineTotal) FROM Book_purchases
 WHERE purchaseID = 1) 

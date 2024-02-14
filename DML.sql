@@ -74,9 +74,10 @@ BookPurchases.invoiceDate, BookPurchases.orderQty, BookPurchases.unitPrice, Book
 INSERT INTO BookPurchases (bookPurchasesID, invoiceDate, orderQty, unitPrice, lineTotal)
 VALUES :bookPurchaseIDInput, :invoiceDateInput; :orderQtyInput, :unitPriceInput, :lineTotalInput;
 
-UPDATE BookPurchases
-SET BookPurchases.bookPurchasesID = :bookPurchaseInputID, BookPurchases.invoiceDate = :invoiceDateInput,
-BookPurchases.orderQty = :orderQtyInput, BookPurchases.unitPrice = :unitPriceInput, BookPurchases.lineTotal = lineTotalInput;
+
+UPDATE Book_purchases
+SET Book_purchases.bookPurchasesID = :bookPurchaseInputID, Book_purchases.invoiceDate = :invoiceDateInput,
+Book_purchases.orderQty = :orderQtyInput, Book_purchases.unitPrice = :unitPriceInput, Book_purchases.lineTotal = lineTotalInput;
 
 DELETE FROM BookPurchases WHERE Book_purchaseID = :bookPurchaseIDInput;
 
