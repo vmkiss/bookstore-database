@@ -20,6 +20,8 @@ SET Books.title = :titleInput, Books.authorID = (SELECT authorID FROM Authors WH
     
 DELETE FROM Books WHERE Books.title = :titleInput;
 
+
+
 -- Purchases table CRUD operations
 SELECT Purchases.purchaseID, Customers.customerName as Customer, Purchases.datePlaced, Purchases.totalPrice, 
 Purchases.purchaseStatus
