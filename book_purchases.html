@@ -79,6 +79,58 @@
                     <td>19.99</td>
                 </tr>
               </table>
+              <div id="add" style = "display: block">
+                <form id="addBookPurchase">
+                    <fieldset>
+                        <legend>
+                            <strong>Add Book Purchase</strong>
+                        </legend>
+                        <label for="id">Purchase ID:</label><br>
+                        <input type="text" id="id" name="id"><br>
+                        <label for="date">Invoice Date:</label><br>
+                        <input type="date" id="date" name="date"><br>
+                        <label for="quantity">Order Quantity:</label><br>
+                        <input type="text" id="quantity" name="quantity"><br>
+                        <label for="unitPrice">Unit Price:</label><br>
+                        <input type="text" id="unitPrice" name="unitPrice"><br>
+                        <label for="lineTotal">Line Total:</label><br>
+                        <input type="text" id="lineTotal" name="lineTotal"><br>
+                        <input type="submit" value="Add Book Purchase">
+                    </fieldset>
+                </form>
+            </div>
+              <div id="update" style = "display: block">
+                <form id="updateBookPurchase">
+                    <fieldset>
+                        <legend>
+                            <strong>Update Book Purchase</strong>
+                        </legend>
+                        <label for="id">Purchase ID:</label><br>
+                        <input type="text" id="id" name="id"><br>
+                        <label for="date">Invoice Date:</label><br>
+                        <input type="date" id="date" name="date"><br>
+                        <label for="quantity">Order Quantity:</label><br>
+                        <input type="text" id="quantity" name="quantity"><br>
+                        <label for="unitPrice">Unit Price:</label><br>
+                        <input type="text" id="unitPrice" name="unitPrice"><br>
+                        <label for="lineTotal">Line Total:</label><br>
+                        <input type="text" id="lineTotal" name="lineTotal"><br>
+                        <input type="submit" value="Update Book Purchase">
+                    </fieldset>
+                </form>
+            </div>
+            <div id="delete" style = "display: block">
+                <form id="deleteBookPurchase">
+                    <fieldset>
+                        <legend>
+                            <strong>Delete Book Purchase</strong>
+                        </legend>
+                        <label for="bookPurchaseID">Book Purchase ID:</label><br>
+                        <input type="text" id="bookPurchaseID" name="bookPurchaseID"><br>
+                        <input type="submit" value="Delete">
+                    </fieldset>
+                </form>
+            </div> 
         </article>
     </body>
 </html>
