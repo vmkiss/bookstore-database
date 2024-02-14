@@ -59,9 +59,11 @@ price DECIMAL (19, 2),
 inventoryQty INT(3),
 PRIMARY KEY (bookID),
 FOREIGN KEY (publisherID) REFERENCES Publishers(publisherID)
-	ON UPDATE CASCADE,
+	ON UPDATE CASCADE
+	ON CASCADE DELETE,
 FOREIGN KEY (authorID) REFERENCES Authors(authorID)
 	ON UPDATE CASCADE
+	ON CASCADE DELETE
 );
 
 -- create Purchases table
