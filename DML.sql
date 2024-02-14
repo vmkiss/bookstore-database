@@ -21,12 +21,19 @@ SET Books.title = :titleInput, Books.authorID = (SELECT authorID FROM Authors WH
 DELETE FROM Books WHERE Books.title = :titleInput;
 
 --Authors table CRUD operations
-SELECT authors.authorID, authors.authorName, Publishers.publisherName as Publisher
+SELECT Authors.authorID, Authors.authorName, Publishers.publisherName as Publisher
     FROM Authors
     INNER JOIN Publishers ON Publishers.publisherID = Authors.publisherID;
 
 INSERT INTO Authors (authorName, publisherID)
 VALUES (:authorInput, (SELECT publisherID FROM Publishers WHERE :publisherInput = Publishers.publisherName));
+
+--Publishers table CRUD operations
+SELECT publisherID, publisherName, publisherAddress, publisherCity, publisherState, publisherZip
+FROM Publishers;
+
+INSERT INTO Publishers (publisherName, publisherAddress, publisherCity, publisherState, publisherZip)
+VALUES (:publisherNameInput, :publisherAddressInput, :publisherCityInput, :publisherStateInput, :publisherZipInput);
 
 -- Purchases table CRUD operations
 SELECT Purchases.purchaseID, Customers.customerName as Customer, Purchases.datePlaced, Purchases.totalPrice, 
