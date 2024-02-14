@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Athena Books</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <meta name="robots" content="noindex, noarchive, nofollow"/>
+        <link rel='stylesheet' type='text/css' media='screen' href='athena.css'>
+        <script src='main.js'></script>
+    </head>
+
+    <body>
+        <h1>Athena Books</h1>
+        <nav class=global>
+            <a href="index.html">Home</a> 
+            <a href="customers.html">Customers</a>
+            <a href="authors.html">Authors</a>
+            <a href="books.html">Books</a>
+            <a href="publishers.html">Publishers</a>
+            <a href="purchases.html">Purchases</a>
+            <a href="bookpurchases.html">BookPurchases</a>
+        </nav>
+        <header>
+            <h1>BookPurchases</h1>
+        </header>
+        <article>
+            <table>
+                <tr>
+                  <th>Book Purchase ID</th>
+                  <th>Book ID</th>
+                  <th>Purchase ID</th>
+                  <th>Invoice Date</th>
+                  <th>Order Quantity</th>
+                  <th>Unit Price</th>
+                  <th>Line Total</th>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>1</td>
+                  <td>2024-01-05</td>
+                  <td>1</td>
+                  <td>15.98</td>
+                  <td>15.98</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>2024-02-01</td>
+                    <td>1</td>
+                    <td>16.99</td>
+                    <td>16.99</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>3</td>
+                    <td>2024-01-30</td>
+                    <td>2</td>
+                    <td>17.99</td>
+                    <td>35.98</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>2024-02-06</td>
+                    <td>1</td>
+                    <td>17.99</td>
+                    <td>17.99</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>2</td>
+                    <td>4</td>
+                    <td>2024-02-06</td>
+                    <td>1</td>
+                    <td>19.99</td>
+                    <td>19.99</td>
+                </tr>
+              </table>
+              <div id="add" style = "display: block">
+                <form id="addBookPurchase">
+                    <fieldset>
+                        <legend>
+                            <strong>Add Book Purchase</strong>
+                        </legend>
+                        <label for="date">Invoice Date:</label><br>
+                        <input type="date" id="date" name="date"><br>
+                        <label for="quantity">Order Quantity:</label><br>
+                        <input type="text" id="quantity" name="quantity"><br>
+                        <label for="unitPrice">Unit Price:</label><br>
+                        <input type="text" id="unitPrice" name="unitPrice"><br>
+                        <label for="lineTotal">Line Total:</label><br>
+                        <input type="text" id="lineTotal" name="lineTotal"><br>
+                        <input type="submit" value="Add Book Purchase">
+                    </fieldset>
+                </form>
+            </div>
+              <div id="update" style = "display: block">
+                <form id="updateBookPurchase">
+                    <fieldset>
+                        <legend>
+                            <strong>Update Book Purchase</strong>
+                        </legend>
+                        <label for="id">Purchase ID:</label><br>
+                        <input type="text" id="id" name="id"><br>
+                        <label for="date">Invoice Date:</label><br>
+                        <input type="date" id="date" name="date"><br>
+                        <label for="quantity">Order Quantity:</label><br>
+                        <input type="text" id="quantity" name="quantity"><br>
+                        <label for="unitPrice">Unit Price:</label><br>
+                        <input type="text" id="unitPrice" name="unitPrice"><br>
+                        <label for="lineTotal">Line Total:</label><br>
+                        <input type="text" id="lineTotal" name="lineTotal"><br>
+                        <input type="submit" value="Update Book Purchase">
+                    </fieldset>
+                </form>
+            </div>
+            <div id="delete" style = "display: block">
+                <form id="deleteBookPurchase">
+                    <fieldset>
+                        <legend>
+                            <strong>Delete Book Purchase</strong>
+                        </legend>
+                        <label for="bookPurchaseID">Book Purchase ID:</label><br>
+                        <input type="text" id="bookPurchaseID" name="bookPurchaseID"><br>
+                        <input type="submit" value="Delete Book Purchase">
+                    </fieldset>
+                </form>
+            </div> 
+        </article>
+    </body>
+</html>
