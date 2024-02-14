@@ -14,7 +14,7 @@ DROP TABLE IF EXISTS Customers;
 CREATE TABLE Customers (
 customerID INT(11) NOT NULL AUTO_INCREMENT, 
 customerName VARCHAR(255) NOT NULL,
-customerPhone VARCHAR(10), 
+customerPhone VARCHAR(12), 
 customerEmail VARCHAR(255) NOT NULL,
 customerAddress VARCHAR (255) NOT NULL, 
 customerCity VARCHAR(255) NOT NULL,
