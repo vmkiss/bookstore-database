@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Athena Books</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <meta name="robots" content="noindex, noarchive, nofollow"/>
+        <link rel='stylesheet' type='text/css' media='screen' href='athena.css'>
+        <script src='main.js'></script>
+    </head>
+
+    <body>
+        <h1>Athena Books</h1>
+        <nav class=global>
+            <a href="index.html">Home</a> 
+            <a href="customers.html">Customers</a>
+            <a href="books.html">Books</a>
+            <a href="publishers.html">Publishers</a>
+            <a href="purchases.html">Purchases</a>
+            <a href="book_purchases.html">Book_purchases</a>
+        </nav>
+        <header>
+            <h1>Authors</h1>
+        </header>
+        <article>
+            <table>
+                <tr>
+                  <th>Author ID</th>
+                  <th>Name</th>
+                  <th>Publisher</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>Harper Lee</th>
+                    <th>HarperCollins</th>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <th>P.G. Wodehouse</th>
+                    <th>Simon & Schuster</th>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <th>Terry Pratchett</th>
+                    <th>Penguin Random House</th>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <th>Louisa May Alcott</th>
+                    <th>Penguin Random House</th>
+                </tr>  
+            </table>
+            <div id="insert" style = "display: block">
+                <form id="addAuthor">
+                    <fieldset>
+                        <legend>
+                            <strong>Add Author</strong>
+                        </legend>
+                        <label for="id">Author ID:</label><br>
+                        <input type="text" id="id" name="id"><br>
+                        <label for="name">Name:</label><br>
+                        <input type="text" id="name" name="name"><br>
+                        <label for="publisher">Publisher:</label><br>
+                        <select name="publisher" id="publisher">
+                            <option value="1">HarperCollins</option>
+                            <option value="2">Simon & Schuster</option>
+                            <option value="3">Penguin Random House</option>
+                        </select><br>
+                        <input id="addAuthor" type="submit" value="Add Author">
+                    </fieldset>
+                </form>
+            </div>
+        </article>
+    </body>
+</html>

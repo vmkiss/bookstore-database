@@ -22,5 +22,215 @@
         <header>
             <h1>Customers</h1>
         </header>
+        <article>
+            <table>
+                <tr>
+                    <th>Customer ID</th>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip Code</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>Daisy Jones</th>
+                    <th>None</th>
+                    <th>djones@gmail.com</th>
+                    <th>12345 SE 12th Ave</th>
+                    <th>Portland</th>
+                    <th>OR</th>
+                    <th>97221</th>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <th>Madeline Smith</th>
+                    <th>6501239876</th>
+                    <th>maddie123@gmail.com</th>
+                    <th>1972 Iliff Ave</th>
+                    <th>Denver</th>
+                    <th>CO</th>
+                    <th>80110</th>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <th>Archibald Eggleton</th>
+                    <th>5033104395</th>
+                    <th>aeggleton@gmail.com</th>
+                    <th>473 Seneca Drive</th>
+                    <th>Portland</th>
+                    <th>OR</th>
+                    <th>97205</th>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <th>Ophelia Bloom</th>
+                    <th>3609702377</th>
+                    <th>bloomo@hotmail.com</th>
+                    <th>2376 Pratt Avenue</th>
+                    <th>Olympia</th>
+                    <th>WA</th>
+                    <th>98501</th>
+                </tr>
+            </table>
+            <div id="insert" style = "display: block">
+                <form id="addCustomer">
+                    <fieldset>
+                        <legend>
+                            <strong>Add Customer</strong>
+                        </legend>
+                        <label for="id">Customer ID:</label><br>
+                        <input type="text" id="id" name="id"><br>
+                        <label for="name">Name:</label><br>
+                        <input type="text" id="name" name="name"><br>
+                        <label for="phone">Phone Number:</label><br>
+                        <input type="text" id="phone" name="phone"><br>
+                        <label for="email">Email:</label><br>
+                        <input type="text" id="email" name="email"><br>
+                        <label for="address">Address:</label><br>
+                        <input type="text" id="address" name="address"><br>
+                        <label for="city">City:</label><br>
+                        <input type="text" id="city" name="city"><br>
+                        <label for="state">State:</label><br>
+                        <select name="state" id="state">
+                            <option value="AK">AK</option>
+                            <option value="AL">AL</option>
+                            <option value="AR">AR</option>
+                            <option value="AZ">AZ</option>
+                            <option value="CA">CA</option>
+                            <option value="CO">CO</option>
+                            <option value="CT">CT</option>
+                            <option value="DE">DE</option>
+                            <option value="FL">FL</option>
+                            <option value="GA">GA</option>
+                            <option value="HI">HI</option>
+                            <option value="IA">IA</option>
+                            <option value="ID">ID</option>
+                            <option value="IL">IL</option>
+                            <option value="IN">IN</option>
+                            <option value="KS">KS</option>
+                            <option value="KY">KY</option>
+                            <option value="LA">LA</option>
+                            <option value="MA">MA</option>
+                            <option value="MD">MD</option>
+                            <option value="ME">ME</option>
+                            <option value="MI">MI</option>
+                            <option value="MN">MN</option>
+                            <option value="MO">MO</option>
+                            <option value="MT">MT</option>
+                            <option value="NC">NC</option>
+                            <option value="ND">ND</option>
+                            <option value="NE">NE</option>
+                            <option value="NH">NH</option>
+                            <option value="NJ">NJ</option>
+                            <option value="NM">NM</option>
+                            <option value="NV">NV</option>
+                            <option value="NY">NY</option>
+                            <option value="OH">OH</option>
+                            <option value="OK">OK</option>
+                            <option value="OR">OR</option>
+                            <option value="PA">PA</option>
+                            <option value="RI">RI</option>
+                            <option value="SC">SC</option>
+                            <option value="AK">AK</option>
+                            <option value="SD">SD</option>
+                            <option value="TN">TN</option>
+                            <option value="TX">TX</option>
+                            <option value="UT">UT</option>
+                            <option value="VA">VA</option>
+                            <option value="VT">VT</option>
+                            <option value="WA">WA</option>
+                            <option value="WI">WI</option>
+                            <option value="WV">WV</option>
+                            <option value="WY">WY</option>
+                        </select><br>
+                        <label for="zip">Zip Code:</label><br>
+                        <input type="text" id="zip" name="zip"><br>
+                        <input id="addCustomer" type="submit" value="Add Customer">
+                    </fieldset>
+                </form>
+            </div>
+
+            <div id="update" style="display: block">
+                <form id="updateCustomer">
+                    <fieldset>
+                        <legend>
+                            <strong>Update Customer</strong>
+                        </legend>
+                        <label for="id">Customer ID:</label><br>
+                        <input type="text" id="id" name="id"><br>
+                        <label for="name">Name:</label><br>
+                        <input type="text" id="name" name="name"><br>
+                        <label for="phone">Phone Number:</label><br>
+                        <input type="text" id="phone" name="phone"><br>
+                        <label for="email">Email:</label><br>
+                        <input type="text" id="email" name="email"><br>
+                        <label for="address">Address:</label><br>
+                        <input type="text" id="address" name="address"><br>
+                        <label for="city">City:</label><br>
+                        <input type="text" id="city" name="city"><br>
+                        <label for="state">State:</label><br>
+                        <select name="state" id="state">
+                            <option value="AK">AK</option>
+                            <option value="AL">AL</option>
+                            <option value="AR">AR</option>
+                            <option value="AZ">AZ</option>
+                            <option value="CA">CA</option>
+                            <option value="CO">CO</option>
+                            <option value="CT">CT</option>
+                            <option value="DE">DE</option>
+                            <option value="FL">FL</option>
+                            <option value="GA">GA</option>
+                            <option value="HI">HI</option>
+                            <option value="IA">IA</option>
+                            <option value="ID">ID</option>
+                            <option value="IL">IL</option>
+                            <option value="IN">IN</option>
+                            <option value="KS">KS</option>
+                            <option value="KY">KY</option>
+                            <option value="LA">LA</option>
+                            <option value="MA">MA</option>
+                            <option value="MD">MD</option>
+                            <option value="ME">ME</option>
+                            <option value="MI">MI</option>
+                            <option value="MN">MN</option>
+                            <option value="MO">MO</option>
+                            <option value="MT">MT</option>
+                            <option value="NC">NC</option>
+                            <option value="ND">ND</option>
+                            <option value="NE">NE</option>
+                            <option value="NH">NH</option>
+                            <option value="NJ">NJ</option>
+                            <option value="NM">NM</option>
+                            <option value="NV">NV</option>
+                            <option value="NY">NY</option>
+                            <option value="OH">OH</option>
+                            <option value="OK">OK</option>
+                            <option value="OR">OR</option>
+                            <option value="PA">PA</option>
+                            <option value="RI">RI</option>
+                            <option value="SC">SC</option>
+                            <option value="AK">AK</option>
+                            <option value="SD">SD</option>
+                            <option value="TN">TN</option>
+                            <option value="TX">TX</option>
+                            <option value="UT">UT</option>
+                            <option value="VA">VA</option>
+                            <option value="VT">VT</option>
+                            <option value="WA">WA</option>
+                            <option value="WI">WI</option>
+                            <option value="WV">WV</option>
+                            <option value="WY">WY</option>
+                        </select><br>
+                        <label for="zip">Zip Code:</label><br>
+                        <input type="text" id="zip" name="zip"><br>
+                        <input id="updateCustomer" type="submit" value="Update Customer">
+                    </fieldset>
+                </form>
+
+            </div>
+        </article>
     </body>
 </html>
