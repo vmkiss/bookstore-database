@@ -64,20 +64,20 @@ Purchases.purchaseStatus = purchaseStatusInput;
 DELETE FROM Purchases WHERE purchaseID = :purchaseIDInput;
 
     
--- Book_purchases (intersection) table CRUD operations
-SELECT Book_purchases.bookPurchasesID, Books.title as Book, Purchases.purchaseID as PurchaseID, 
-Book_purchases.invoiceDate, Book_purchases.orderQty, Book_purchases.unitPrice, Book_purchases.lineTotal
-	FROM Book_purchases
-    INNER JOIN Books ON Books.bookID = Book_purchases.bookID
-    INNER JOIN Purchases ON Book_purchases.purchaseID = Purchases.purchaseID;
+-- BookPurchases (intersection) table CRUD operations
+SELECT BookPurchases.bookPurchasesID, Books.title as Book, Purchases.purchaseID as PurchaseID, 
+BookPurchases.invoiceDate, BookPurchases.orderQty, BookPurchases.unitPrice, BookPurchases.lineTotal
+	FROM BookPurchases
+    INNER JOIN Books ON Books.bookID = BookPurchases.bookID
+    INNER JOIN Purchases ON BookPurchases.purchaseID = Purchases.purchaseID;
 
-INSERT INTO Book_purchases (bookPurchasesID, invoiceDate, orderQty, unitPrice, lineTotal)
+INSERT INTO BookPurchases (bookPurchasesID, invoiceDate, orderQty, unitPrice, lineTotal)
 VALUES :bookPurchaseIDInput, :invoiceDateInput; :orderQtyInput, :unitPriceInput, :lineTotalInput;
 
-UPDATE Book_purchases
-SET Book_purchases.bookPurchasesID = :bookPurchaseInputID, Book_purchases.invoiceDate = :invoiceDateInput,
-Book_purchases.orderQty = :orderQtyInput, Book_purchases.unitPrice = :unitPriceInput, Book_purchases.lineTotal = lineTotalInput;
+UPDATE BookPurchases
+SET BookPurchases.bookPurchasesID = :bookPurchaseInputID, BookPurchases.invoiceDate = :invoiceDateInput,
+BookPurchases.orderQty = :orderQtyInput, BookPurchases.unitPrice = :unitPriceInput, BookPurchases.lineTotal = lineTotalInput;
 
-DELETE FROM Book_purchases WHERE Book_purchaseID = :bookPurchaseIDInput;
+DELETE FROM BookPurchases WHERE Book_purchaseID = :bookPurchaseIDInput;
 
 
