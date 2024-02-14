@@ -48,9 +48,27 @@
                     <th>4</th>
                     <th>Louisa May Alcott</th>
                     <th>Penguin Random House</th>
-                </tr>
-                  
+                </tr>  
             </table>
+            <div id="add" style = "display: block">
+                <form id="addAuthor">
+                    <fieldset>
+                        <legend>
+                            <strong>Add Author</strong>
+                        </legend>
+                        <label for="id">Author ID:</label><br>
+                        <input type="text" id="id" name="id"><br>
+                        <label for="name">Name:</label><br>
+                        <input type="text" id="name" name="name"><br>
+                        <label for="publisher">Publisher:</label><br>
+                        <select name="publisher" id="publisher">
+                            <option value="HarperCollins">HarperCollins</option>
+                            <option value="Penguin Random House">Penguin Random House</option>
+                            <option value="Simon & Schuster">Simon & Schuster</option>
+                        </select><br>
+                    </fieldset>
+                </form>
+            </div>
         </article>
     </body>
 </html>
