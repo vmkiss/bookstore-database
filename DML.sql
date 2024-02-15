@@ -20,7 +20,7 @@ SET Books.title = :titleInput, Books.authorID = (SELECT authorID FROM Authors WH
     
 DELETE FROM Books WHERE Books.title = :titleInput;
 
---Authors table CRUD operations
+-- Authors table CRUD operations
 SELECT Authors.authorID, Authors.authorName, Publishers.publisherName as Publisher
     FROM Authors
     INNER JOIN Publishers ON Publishers.publisherID = Authors.publisherID;
@@ -29,7 +29,7 @@ INSERT INTO Authors (authorName, publisherID)
 VALUES (:authorInput, (SELECT publisherID FROM Publishers WHERE :publisherInput = Publishers.publisherName));
 
 
---Publishers table CRUD operations
+-- Publishers table CRUD operations
 SELECT publisherID, publisherName, publisherAddress, publisherCity, publisherState, publisherZip
 FROM Publishers;
 
