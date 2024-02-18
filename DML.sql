@@ -55,7 +55,7 @@ Purchases.purchaseStatus
     INNER JOIN Purchases ON Customers.customerID = Purchases.customerID;
 
 INSERT INTO Purchases (purchaseID, datePlaced, totalPrice, purchaseStatus)
-VALUES :purchaseIDInput, :datePlacedInput, :totalPriceInput, :purchaseStatusInput;
+VALUES (:purchaseIDInput, :datePlacedInput, :totalPriceInput, :purchaseStatusInput);
     
 UPDATE Purchases
 SET Purchases.purchaseID = :purchaseIDInput, Purchases.datePlaced = :datePlacedInput, Purchases.totalPrice = :totalPriceInput, 
@@ -72,7 +72,7 @@ BookPurchases.invoiceDate, BookPurchases.orderQty, BookPurchases.unitPrice, Book
     INNER JOIN Purchases ON BookPurchases.purchaseID = Purchases.purchaseID;
 
 INSERT INTO BookPurchases (bookPurchasesID, invoiceDate, orderQty, unitPrice, lineTotal)
-VALUES :bookPurchaseIDInput, :invoiceDateInput; :orderQtyInput, :unitPriceInput, :lineTotalInput;
+VALUES (:bookPurchaseIDInput, :invoiceDateInput; :orderQtyInput, :unitPriceInput, :lineTotalInput);
 
 
 UPDATE Book_purchases
