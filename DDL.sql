@@ -72,7 +72,6 @@ CREATE TABLE Purchases (
 purchaseID INT(11) NOT NULL AUTO_INCREMENT, 
 customerID INT(11) NOT NULL, 
 datePlaced DATE NOT NULL, 
-totalPrice DECIMAL(19, 2),
 purchaseStatus VARCHAR(255),
 PRIMARY KEY (purchaseID),
 FOREIGN KEY (customerID) REFERENCES Customers(customerID)
@@ -151,28 +150,6 @@ VALUES ((SELECT bookID FROM Books WHERE title = 'Monstrous Regiment'), (SELECT p
 ((SELECT bookID FROM Books WHERE title = 'Right Ho, Jeeves'), (SELECT purchaseID FROM Purchases WHERE customerID = (SELECT customerID FROM Customers WHERE customerName = 'Ophelia Bloom') AND datePlaced = '2024-02-06'),
 '2024-02-06', 1, (SELECT price FROM Books WHERE title = 'Right Ho, Jeeves' AND authorID = (SELECT authorID FROM Authors WHERE authorName = 'P.G. Wodehouse')), (orderQty * unitPrice))
 ;
-
---Update totalPrice of Purchase by calculating sum of purchases of individual books
-UPDATE Purchases
-SET totalPrice = (SELECT SUM(lineTotal) FROM Book_purchases
-WHERE purchaseID = 1) 
-WHERE purchaseID = 1;
-
-UPDATE Purchases
-SET totalPrice = (SELECT SUM(lineTotal) FROM Book_purchases
-WHERE purchaseID = 2) 
-WHERE purchaseID = 2;
-
-UPDATE Purchases
-SET totalPrice = (SELECT SUM(lineTotal) FROM Book_purchases
-WHERE purchaseID = 3) 
-WHERE purchaseID = 3;
-
-UPDATE Purchases
-SET totalPrice = (SELECT SUM(lineTotal) FROM Book_purchases
-WHERE purchaseID = 4) 
-WHERE purchaseID = 4;
-
 
 -- Citation: code to enable commits and foreign key checks
 -- Copied from CS 340 Canvas Assignment Project Step 2 Draft (https://canvas.oregonstate.edu/courses/1946034/assignments/9456214)

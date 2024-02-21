@@ -45,21 +45,23 @@ VALUES (:customerNameInput, :customerPhoneInput, :customerEmailInput, :customerA
 
 UPDATE Customers
 SET customerName = :customerNameInput, customerPhone = :customerPhoneInput, customerEmail = :customerEmailInput, customerAddress = :customerAddressInput,
-customerCity = :customerCityInput, customerState = :customerStateInput, customerZip = :customerZipInput;
-
+customerCity = :customerCityInput, customerState = :customerStateInput, customerZip = :customerZipInput
+WHERE customerID = :customerIDInput;
 
 -- Purchases table CRUD operations
-SELECT Purchases.purchaseID, Customers.customerName as Customer, Purchases.datePlaced, Purchases.totalPrice, 
-Purchases.purchaseStatus
+SELECT Purchases.purchaseID, Customers.customerName as Customer, Purchases.datePlaced, Purchases.purchaseStatus
 	FROM Customers
     INNER JOIN Purchases ON Customers.customerID = Purchases.customerID;
 
-INSERT INTO Purchases (datePlaced, customerID, totalPrice, purchaseStatus)
-VALUES (:datePlacedInput, (SELECT customerID from Customers WHERE customerName = :inputName), :sumItems(calculation), :purchaseStatusInput);
-    
+INSERT INTO Purchases (datePlaced, customerID, purchaseStatus)
+VALUES (:datePlacedInput, (SELECT customerID from Customers WHERE customerName = :inputName), :purchaseStatusInput);
+
+--Move BookPurchases INSERT query here?
+
+
+--Remove ability to update purchaseID?  
 UPDATE Purchases
-SET Purchases.purchaseID = :purchaseIDInput, Purchases.datePlaced = :datePlacedInput, Purchases.totalPrice = :totalPriceInput, 
-Purchases.purchaseStatus = purchaseStatusInput;
+SET Purchases.purchaseID = :purchaseIDInput, Purchases.datePlaced = :datePlacedInput, Purchases.purchaseStatus = purchaseStatusInput;
     
 DELETE FROM Purchases WHERE purchaseID = :purchaseIDInput;
 
@@ -71,19 +73,20 @@ BookPurchases.invoiceDate, BookPurchases.orderQty, BookPurchases.unitPrice, Book
     INNER JOIN Books ON Books.bookID = BookPurchases.bookID
     INNER JOIN Purchases ON BookPurchases.purchaseID = Purchases.purchaseID;
 
-INSERT INTO BookPurchases (bookPurchasesID, invoiceDate, orderQty, unitPrice, lineTotal)
-VALUES (:bookPurchaseIDInput, :invoiceDateInput; :orderQtyInput, :unitPriceInput, :lineTotalInput);
+--INSERT INTO BookPurchases (bookPurchasesID, invoiceDate, orderQty, unitPrice, lineTotal)
+--VALUES (:bookPurchaseIDInput, :invoiceDateInput; :orderQtyInput, :unitPriceInput, :lineTotalInput);
 
 <!-- using user input from Purchases form-->
-INSERT INTO BookPurchases (bookID, purchaseID, invoiceDate) 
-VALUES ((SELECT bookID WHERE :bookTitleInput = Books.title), (SELECT purchaseID WHERE Purchases.customerID = (SELECT customerID WHERE Purchases.customerName = :userInputName)), 
-)???
-<!--could also use SELECT insert_last_id FROM Purchases to find purchaseID-->
+INSERT INTO BookPurchases (bookID, purchaseID, invoiceDate, orderQty, unitPrice, lineTotal) 
+VALUES ((SELECT bookID FROM Books WHERE Books.title = :bookTitleInput), 
+(SELECT purchaseID FROM Purchases WHERE Purchases.customerID = (SELECT customerID FROM Customers WHERE Customers.customerName = :userInputName) AND Purchases.datePlaced = :invoiceDateInput), 
+:invoiceDateInput, :orderQtyInput, (SELECT price FROM Books WHERE Books.title = :bookTitleInput), (orderQty * unitPrice));
 
 
+--Remove ability to update bookPurchasesID? Do we really want the ability to directly input unitPrice and lineTotal
 UPDATE BookPurchases
 SET BookPurchases.bookPurchasesID = :bookPurchaseInputID, BookPurchases.invoiceDate = :invoiceDateInput,
-BookPurchases.orderQty = :orderQtyInput, BookPurchases.unitPrice = :unitPriceInput, BookPurchases.lineTotal = lineTotalInput;
+BookPurchases.orderQty = :orderQtyInput, BookPurchases.unitPrice = :unitPriceInput, BookPurchases.lineTotal = :lineTotalInput;
 
 DELETE FROM BookPurchases WHERE Book_purchaseID = :bookPurchaseIDInput;
 
