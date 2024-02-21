@@ -68,6 +68,7 @@ https://canvas.oregonstate.edu/courses/1933705/pages/exploration-intro-to-html?m
                     <td>Processing</td>
                 </tr>
             </table>
+
             <div id="insert" style = "display: block">
                 <form id="addPurchase">
                     <fieldset>
@@ -76,10 +77,26 @@ https://canvas.oregonstate.edu/courses/1933705/pages/exploration-intro-to-html?m
                         </legend>
                         <label for="date">Order Date:</label><br>
                         <input type="date" id="date" name="date"><br>
-                        <label for="price">Total Price:</label><br>
-                        <input type="text" id="price" name="price"><br>
+                        <label for="name">Customer Name:</label><br>
+                        <input type="text" id="name" name="name"><br>
+                        <label for="item1">Book 1 (title):</label><br>
+                        <input type="text" id="item1" name="item1">
+                        <label for="qty1">Quantity</label>
+                        <input type="qty1" id="qty1" name="qty1"><br>
+                        <label for="item1">Book 2 (optional):</label><br>
+                        <input type="text" id="item2" name="item2">
+                        <label for="qty2">Quantity</label>
+                        <input type="qty2" id="qty2" name="qty2"><br>
+                        <label for="item1">Book 3 (optional):</label><br>
+                        <input type="text" id="item3" name="item3">
+                        <label for="qty3">Quantity</label>
+                        <input type="qty3" id="qty3" name="qty3"><br>
                         <label for="status">Order Status:</label><br>
-                        <input type="status" id="status" name="status"><br>
+                        <select name="status">
+                            <option value="Processing">Processing</option>
+                            <option value="Shipped">Shipped</option>
+                            <option value="Completed">Completed</option>
+                        </select><br>
                         <input type="submit" value="Add Purchase">
                     </fieldset>
                 </form>

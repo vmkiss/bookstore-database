@@ -54,8 +54,8 @@ Purchases.purchaseStatus
 	FROM Customers
     INNER JOIN Purchases ON Customers.customerID = Purchases.customerID;
 
-INSERT INTO Purchases (purchaseID, datePlaced, totalPrice, purchaseStatus)
-VALUES (:purchaseIDInput, :datePlacedInput, :totalPriceInput, :purchaseStatusInput);
+INSERT INTO Purchases (datePlaced, customerID, totalPrice, purchaseStatus)
+VALUES (:datePlacedInput, (SELECT customerID from Customers WHERE customerName = :inputName), :sumItems(calculation), :purchaseStatusInput);
     
 UPDATE Purchases
 SET Purchases.purchaseID = :purchaseIDInput, Purchases.datePlaced = :datePlacedInput, Purchases.totalPrice = :totalPriceInput, 
@@ -74,10 +74,16 @@ BookPurchases.invoiceDate, BookPurchases.orderQty, BookPurchases.unitPrice, Book
 INSERT INTO BookPurchases (bookPurchasesID, invoiceDate, orderQty, unitPrice, lineTotal)
 VALUES (:bookPurchaseIDInput, :invoiceDateInput; :orderQtyInput, :unitPriceInput, :lineTotalInput);
 
+<!-- using user input from Purchases form-->
+INSERT INTO BookPurchases (bookID, purchaseID, invoiceDate) 
+VALUES ((SELECT bookID WHERE :bookTitleInput = Books.title), (SELECT purchaseID WHERE Purchases.customerID = (SELECT customerID WHERE Purchases.customerName = :userInputName)), 
+)???
+<!--could also use SELECT insert_last_id FROM Purchases to find purchaseID-->
 
-UPDATE Book_purchases
-SET Book_purchases.bookPurchasesID = :bookPurchaseInputID, Book_purchases.invoiceDate = :invoiceDateInput,
-Book_purchases.orderQty = :orderQtyInput, Book_purchases.unitPrice = :unitPriceInput, Book_purchases.lineTotal = lineTotalInput;
+
+UPDATE BookPurchases
+SET BookPurchases.bookPurchasesID = :bookPurchaseInputID, BookPurchases.invoiceDate = :invoiceDateInput,
+BookPurchases.orderQty = :orderQtyInput, BookPurchases.unitPrice = :unitPriceInput, BookPurchases.lineTotal = lineTotalInput;
 
 DELETE FROM BookPurchases WHERE Book_purchaseID = :bookPurchaseIDInput;
 
