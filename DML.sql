@@ -54,9 +54,17 @@ Purchases.purchaseStatus
 	FROM Customers
     INNER JOIN Purchases ON Customers.customerID = Purchases.customerID;
 
+--Remove totalPrice from first Purchases INSERT query?
 INSERT INTO Purchases (datePlaced, customerID, totalPrice, purchaseStatus)
 VALUES (:datePlacedInput, (SELECT customerID from Customers WHERE customerName = :inputName), :sumItems(calculation), :purchaseStatusInput);
-    
+
+--Move BookPurchases INSERT query here?
+
+--INSERT query for totalPrice attribute here? Do we need to add a line to calculate total price
+--INSERT INTO Purchases (totalPrice)
+--VALUES (SELECT SUM(lineTotal) FROM BookPurchases WHERE BookPurchases.purchaseID)
+
+--Remove ability to update purchaseID?  
 UPDATE Purchases
 SET Purchases.purchaseID = :purchaseIDInput, Purchases.datePlaced = :datePlacedInput, Purchases.totalPrice = :totalPriceInput, 
 Purchases.purchaseStatus = purchaseStatusInput;
@@ -78,9 +86,10 @@ BookPurchases.invoiceDate, BookPurchases.orderQty, BookPurchases.unitPrice, Book
 INSERT INTO BookPurchases (bookID, purchaseID, invoiceDate, orderQty, unitPrice, lineTotal) 
 VALUES ((SELECT bookID FROM Books WHERE Books.title = :bookTitleInput), 
 (SELECT purchaseID FROM Purchases WHERE Purchases.customerID = (SELECT customerID FROM Customers WHERE Customers.customerName = :userInputName) AND Purchases.datePlaced = :invoiceDateInput), 
-:invoiceDateInput, :orderQtyInput, (SELECT price FROM Books WHERE Books.title = :bookTitleInput), (orderQtyInput * unitPrice));
+:invoiceDateInput, :orderQtyInput, (SELECT price FROM Books WHERE Books.title = :bookTitleInput), (orderQty * unitPrice));
 
 
+--Remove ability to update bookPurchasesID?
 UPDATE BookPurchases
 SET BookPurchases.bookPurchasesID = :bookPurchaseInputID, BookPurchases.invoiceDate = :invoiceDateInput,
 BookPurchases.orderQty = :orderQtyInput, BookPurchases.unitPrice = :unitPriceInput, BookPurchases.lineTotal = lineTotalInput;
