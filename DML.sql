@@ -14,7 +14,7 @@ VALUES (:titleInput, (SELECT authorID FROM Authors WHERE :authorInput = Authors.
        :genreInput, :priceInput, :inventoryQtyInput);
     
 UPDATE Books 
-SET Books.title = :titleInput, Books.authorID = (SELECT authorID FROM Authors WHERE :authorInput = Authors.authorName),
+SET Books.bookID = :bookIDInput, Books.title = :titleInput, Books.authorID = (SELECT authorID FROM Authors WHERE :authorInput = Authors.authorName),
 	Books.publisherID = (SELECT publisherID FROM Publishers WHERE :publisherInput = Publishers.publisherName),
     Books.genre = :genreInput, Books.price = :priceInput, Books.inventoryQty = :inventoryQtyInput;
     
